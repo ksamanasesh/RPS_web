@@ -1,0 +1,228 @@
+/* General Styles */
+body {
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #555;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+p {
+    color: #777;
+    font-size: 1.2rem;
+}
+
+button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #ff3b2f;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Home Page */
+.home-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-container img {
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-container a {
+    display: block;  /* Ensures buttons are on new lines */
+    text-align: center;
+    margin-top: 20px; /* Moves buttons down */
+}
+
+.home-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+
+/* Play Page */
+.play-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.play-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.play-container img{
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Game Page */
+.game-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 100%;
+}
+
+.game-container img {
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#user-score, #bot-score {
+    font-weight: bold;
+    color: #333;
+}
+
+#result {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #ff6f61;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #ff6f61;
+    color: white;
+    font-size: 1.2rem;
+}
+
+table td {
+    background-color: #f9f9f9;
+}
+
+/* Image Placeholders */
+img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure images are blank at the start */
+#user-choice-img, #bot-choice-img {
+    visibility: hidden; /* Hide the images initially */
+}
+
+/* Show images when they have a valid src */
+#user-choice-img[src], #bot-choice-img[src] {
+    visibility: visible;
+}
+
+/* Result Page */
+.result-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.result-container table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.result-container th, .result-container td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.result-container th {
+    background-color: #ff6f61;
+    color: white;
+}
+
+.result-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Leaderboard Page */
+.leaderboard-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboard-container table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.leaderboard-container th, .leaderboard-container td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+}
+
+.leaderboard-container th {
+    background-color: #ff6f61;
+    color: white;
+}
+
+.leaderboard-container tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

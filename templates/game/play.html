@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Your Name</title>
+    <link rel="stylesheet" href="../../static/game/RPS.css">
+</head>
+<body>
+    <div class="play-container">
+        <h1>Enter Your Name</h1>
+        <img src="../../static/img/rrrr.png" alt="Rock Paper Scissors" width="375" height="215">
+        <form method="post">
+            {% csrf_token %}
+            <input type="text" name="user_name" required>
+            <button type="submit">Start</button>
+        </form>
+    </div>
+</body>
+</html>

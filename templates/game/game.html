@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <link rel="stylesheet" href="../../static/game/RPS.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>ROCK PAPER SCISSOR</h1>
+        <h2>{{ user_name }}</h2>
+
+        <p>Your Score: <span id="user-score">{{ user_score }}</span></p>
+        <p>Smith's Score: <span id="bot-score">{{ bot_score }}</span></p>
+
+        <div>
+            <table>
+                <tr>
+                    <th><h3>Your Choice</h3></th>
+                    <th><h3>Smith's Choice</h3></th>
+                </tr>
+                <tr>
+                    <td>
+                        <img id="user-choice-img" src="" alt="Your Choice" width="103" height="95">
+                    </td>
+                    <td>
+                        <img id="bot-choice-img" src="" alt="Smith's Choice" width="103" height="95">
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <button onclick="playGame(0)">
+                <img src="../../static/img/rock.png" alt="Rock" width="103" height="95">
+            </button>
+            <button onclick="playGame(1)">
+                <img src="../../static/img/paper.png" alt="Paper" width="103" height="95">
+            </button>
+            <button onclick="playGame(2)">
+                <img src="../../static/img/scissors.png" alt="Scissors" width="103" height="95">
+            </button>
+        </div>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function playGame(userChoice) {
+            fetch('/game/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: `choice=${userChoice}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.game_over) {
+                    window.location.href = data.redirect_url;
+                } else {
+                    // Update scores and result
+                    document.getElementById('user-score').textContent = data.user_score;
+                    document.getElementById('bot-score').textContent = data.bot_score;
+                    document.getElementById('result').textContent = data.result;
+
+                    // Update user's choice image
+                    const userChoiceImage = document.getElementById('user-choice-img');
+                    if (userChoice === 0) {
+                        userChoiceImage.src = "../../static/img/rock.png";
+                    } else if (userChoice === 1) {
+                        userChoiceImage.src = "../../static/img/paper.png";
+                    } else if (userChoice === 2) {
+                        userChoiceImage.src = "../../static/img/scissors.png";
+                    }
+
+                    // Update bot's choice image
+                    const botChoiceImage = document.getElementById('bot-choice-img');
+                    if (data.bot_choice === 0) {
+                        botChoiceImage.src = "../../static/img/rock.png";
+                    } else if (data.bot_choice === 1) {
+                        botChoiceImage.src = "../../static/img/paper.png";
+                    } else if (data.bot_choice === 2) {
+                        botChoiceImage.src = "../../static/img/scissors.png";
+                    }
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>

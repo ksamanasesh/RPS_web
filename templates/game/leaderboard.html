@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="../../static/game/RPS.css">
+</head>
+<body>
+    <div class="leaderboard-container">
+        <h1>Top 10 Rankings</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>User Name</th>
+                    <th>Total Wins</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in top_users %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ user.user_name }}</td>
+                        <td>{{ user.total_wins }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/">
+            <button>Back to Home</button>
+        </a>
+    </div>
+</body>
+</html>
